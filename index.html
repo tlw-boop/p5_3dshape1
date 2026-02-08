@@ -7,10 +7,8 @@
   <style>
     :root{
       --bg:#0b1220;
-      --panel:#121a2b;
       --text:#eaf0ff;
       --muted:#a9b5d6;
-      --accent:#66e3ff;
       --danger:#ff6b6b;
       --ok:#55efc4;
     }
@@ -29,9 +27,7 @@
       grid-template-columns: 360px 1fr;
       gap:16px;
     }
-    @media (max-width: 980px){
-      .wrap{grid-template-columns: 1fr}
-    }
+    @media (max-width: 980px){ .wrap{grid-template-columns: 1fr} }
     .card{
       background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
       border: 1px solid rgba(255,255,255,0.12);
@@ -39,32 +35,16 @@
       box-shadow: 0 16px 40px rgba(0,0,0,0.35);
       overflow:hidden;
     }
-    header{
-      padding:16px 16px 8px 16px;
-    }
-    h1{
-      margin:0;
-      font-size: 18px;
-      letter-spacing: .5px;
-    }
-    .sub{
-      margin:6px 0 0 0;
-      color:var(--muted);
-      font-size: 13px;
-      line-height: 1.35;
-    }
+    header{ padding:16px 16px 8px 16px; }
+    h1{ margin:0; font-size:18px; letter-spacing:.5px; }
+    .sub{ margin:6px 0 0 0; color:var(--muted); font-size:13px; line-height:1.35; }
 
     .panel{
       padding: 14px 16px 16px 16px;
       background: rgba(0,0,0,0.18);
       border-top: 1px solid rgba(255,255,255,0.10);
     }
-    label{
-      display:block;
-      font-size: 13px;
-      color: var(--muted);
-      margin: 10px 0 6px;
-    }
+    label{ display:block; font-size:13px; color:var(--muted); margin:10px 0 6px; }
     select{
       width:100%;
       padding: 11px 12px;
@@ -75,20 +55,8 @@
       outline: none;
       font-size: 15px;
     }
-    select:focus{
-      border-color: rgba(102,227,255,0.65);
-      box-shadow: 0 0 0 3px rgba(102,227,255,0.16);
-    }
-    .row{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-    .btns{
-      display:flex;
-      gap: 10px;
-      margin-top: 14px;
-    }
+    .row{ display:grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .btns{ display:flex; gap:10px; margin-top:14px; }
     button{
       flex:1;
       padding: 12px 12px;
@@ -98,28 +66,13 @@
       color: var(--text);
       font-size: 15px;
       cursor:pointer;
-      transition: transform .05s ease, background .2s ease, border-color .2s ease;
     }
-    button:hover{
-      background: rgba(255,255,255,0.12);
-      border-color: rgba(255,255,255,0.22);
-    }
-    button:active{transform: translateY(1px)}
+    button:hover{ background: rgba(255,255,255,0.12); }
     .primary{
       background: rgba(102,227,255,0.18);
       border-color: rgba(102,227,255,0.35);
     }
-    .primary:hover{
-      background: rgba(102,227,255,0.25);
-      border-color: rgba(102,227,255,0.55);
-    }
 
-    .hint{
-      margin-top: 10px;
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.4;
-    }
     .msg{
       margin-top: 10px;
       padding: 10px 12px;
@@ -143,10 +96,7 @@
       color: #d5fff3;
     }
 
-    .viewer{
-      position:relative;
-      min-height: 520px;
-    }
+    .viewer{ position:relative; min-height: 520px; }
     #nameBanner{
       padding: 14px 16px;
       border-bottom: 1px solid rgba(255,255,255,0.10);
@@ -162,23 +112,12 @@
       border: 1px solid rgba(255,255,255,0.14);
       background: rgba(0,0,0,0.18);
     }
-    #shapeName{
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: .5px;
-    }
-    #canvasHost{
-      height: calc(520px - 56px);
-      min-height: 420px;
-    }
+    #shapeName{ font-size: 18px; font-weight: 700; letter-spacing: .5px; }
+    #canvasHost{ height: calc(520px - 56px); min-height: 420px; }
     .overlayTip{
-      position:absolute;
-      right: 12px;
-      bottom: 12px;
-      font-size: 12px;
-      color: var(--muted);
-      padding: 7px 10px;
-      border-radius: 12px;
+      position:absolute; right: 12px; bottom: 12px;
+      font-size: 12px; color: var(--muted);
+      padding: 7px 10px; border-radius: 12px;
       border: 1px solid rgba(255,255,255,0.14);
       background: rgba(0,0,0,0.20);
       pointer-events:none;
@@ -189,12 +128,6 @@
       padding: 10px 16px 16px;
       border-top: 1px solid rgba(255,255,255,0.10);
       line-height: 1.5;
-    }
-    code{
-      background: rgba(255,255,255,0.08);
-      padding: 2px 6px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.12);
     }
   </style>
 </head>
@@ -229,22 +162,16 @@
 
         <div id="msg" class="msg"></div>
 
-        <div class="hint">
-          <div>✅ 平台涵蓋：<b>三至二十角柱</b>、<b>三至二十角錐</b></div>
-          <div>💡 例子：</div>
-          <div>・三角柱：稜=9，頂點=6</div>
-          <div>・五角錐：稜=10，頂點=6</div>
-          <div class="hint" style="margin-top:8px;">
-            規律提示：<br>
-            ・n角柱：頂點=2n，稜=3n<br>
-            ・n角錐：頂點=n+1，稜=2n
-          </div>
+        <div class="tiny" style="border-top:none; padding:10px 0 0;">
+          規律提示：<br>
+          ・n角柱：頂點=2n，稜=3n（n=3–20）<br>
+          ・n角錐：頂點=n+1，稜=2n（n=3–20）
         </div>
       </div>
 
       <div class="tiny">
-        操作：用滑鼠拖拉旋轉、滾輪縮放。<br>
-        如出現「你的輸入無法生成立體圖形」，請按「重設」再試。
+        操作：拖拉旋轉｜滾輪縮放。<br>
+        如果你係「雙擊開檔」測試（file://），Three.js 可能會載入失敗；但下拉選單應該仍然會有選項。
       </div>
     </div>
 
@@ -259,18 +186,14 @@
     </div>
   </div>
 
-  <script type="module">
-    import * as THREE from "https://unpkg.com/three@0.160.0/build/three.module.js";
-    import { OrbitControls } from "https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js";
-
-    // ====== UI：建立選項（只能用下拉選單，不能輸入） ======
+  <!-- ✅ 1) 先用「普通 script」填充下拉選單：不依賴 three.js，所以一定有選項 -->
+  <script>
     const edgesSel = document.getElementById("edgesSel");
     const vertsSel = document.getElementById("vertsSel");
     const confirmBtn = document.getElementById("confirmBtn");
     const resetBtn = document.getElementById("resetBtn");
     const msgBox = document.getElementById("msg");
     const shapeNameEl = document.getElementById("shapeName");
-    const canvasHost = document.getElementById("canvasHost");
 
     function fillSelect(select, min, max, defaultValue){
       select.innerHTML = "";
@@ -283,7 +206,7 @@
       select.value = String(defaultValue);
     }
 
-    // ✅ 按你的要求：稜 6–60，頂點 4–40
+    // ✅ 你要求：稜 6–60；頂點 4–40
     fillSelect(edgesSel, 6, 60, 9);
     fillSelect(vertsSel, 4, 40, 6);
 
@@ -293,33 +216,95 @@
       msgBox.style.display = text ? "block" : "none";
     }
 
-    // ====== 判斷：由（稜 E, 頂點 V）推回是 n角柱 / n角錐 ======
-    // n角柱：V = 2n, E = 3n  => V必須為偶數, 且 2E = 3V
-    // n角錐：V = n+1, E = 2n => E = 2(V-1)
     function detectSolid(E, V){
-      // n角柱
+      // n角柱：V=2n, E=3n => V偶數 & 2E=3V
       if (V % 2 === 0){
         const n = V / 2;
-        if (n >= 3 && n <= 20 && (2 * E === 3 * V)){
-          return { type: "prism", n };
-        }
+        if (n >= 3 && n <= 20 && (2 * E === 3 * V)) return { type:"prism", n };
       }
-
-      // n角錐
-      {
-        const n = V - 1;
-        if (n >= 3 && n <= 20 && (E === 2 * n)){
-          return { type: "pyramid", n };
-        }
-      }
+      // n角錐：V=n+1, E=2n => E=2(V-1)
+      const n2 = V - 1;
+      if (n2 >= 3 && n2 <= 20 && (E === 2 * n2)) return { type:"pyramid", n:n2 };
 
       return null;
     }
 
-    // ====== Three.js：場景/相機/渲染器 ======
+    function resetAll(){
+      edgesSel.value = "9";
+      vertsSel.value = "6";
+      shapeNameEl.textContent = "（尚未生成）";
+      setMsg("", "");
+      window.__clear3D?.();
+    }
+
+    resetBtn.addEventListener("click", resetAll);
+
+    // 暫存：如果 3D 未準備好，先提示
+    confirmBtn.addEventListener("click", () => {
+      if (!window.__generate3D){
+        const E = Number(edgesSel.value);
+        const V = Number(vertsSel.value);
+        const d = detectSolid(E, V);
+
+        if (!d){
+          shapeNameEl.textContent = "（無法生成）";
+          setMsg("err", "你的輸入無法生成立體圖形。請按「重設」或更改稜數/頂點數再試。");
+          return;
+        }
+        const name = d.type === "prism" ? `${d.n}角柱` : `${d.n}角錐`;
+        shapeNameEl.textContent = name;
+        setMsg("err", "3D 模組未能載入（可能係 file:// 或網絡擋咗 CDN）。請用 GitHub Pages 或本機伺服器開啟。");
+        return;
+      }
+
+      window.__generate3D();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") confirmBtn.click();
+    });
+  </script>
+
+  <!-- ✅ 2) 再用「module」動態載入 Three.js：失敗都唔影響下拉選單 -->
+  <script type="module">
+    const edgesSel = document.getElementById("edgesSel");
+    const vertsSel = document.getElementById("vertsSel");
+    const msgBox = document.getElementById("msg");
+    const shapeNameEl = document.getElementById("shapeName");
+    const canvasHost = document.getElementById("canvasHost");
+
+    function setMsg(type, text){
+      msgBox.className = "msg " + (type || "");
+      msgBox.textContent = text || "";
+      msgBox.style.display = text ? "block" : "none";
+    }
+
+    function detectSolid(E, V){
+      if (V % 2 === 0){
+        const n = V / 2;
+        if (n >= 3 && n <= 20 && (2 * E === 3 * V)) return { type:"prism", n };
+      }
+      const n2 = V - 1;
+      if (n2 >= 3 && n2 <= 20 && (E === 2 * n2)) return { type:"pyramid", n:n2 };
+      return null;
+    }
+
+    let THREE, OrbitControls;
+    try{
+      THREE = await import("https://unpkg.com/three@0.160.0/build/three.module.js");
+      ({ OrbitControls } = await import("https://unpkg.com/three@0.160.0/examples/jsm/controls/OrbitControls.js"));
+    }catch(err){
+      // Three.js 載入失敗：保留平台下拉選單，但提示如何開啟
+      setMsg("err",
+        "未能載入 Three.js（可能你係用 file:// 雙擊開檔，或網絡擋咗 unpkg）。\n" +
+        "建議：上 GitHub Pages 開啟，或用本機伺服器（例如 VSCode Live Server / python http.server）。"
+      );
+      throw err;
+    }
+
+    // ===== Three.js 初始化 =====
     let scene, camera, renderer, controls;
     let currentMesh = null;
-    let rafId = null;
 
     function initThree(){
       scene = new THREE.Scene();
@@ -341,7 +326,6 @@
       controls.enableDamping = true;
       controls.dampingFactor = 0.08;
 
-      // 光源
       const amb = new THREE.AmbientLight(0xffffff, 0.55);
       scene.add(amb);
 
@@ -353,29 +337,24 @@
       dir2.position.set(-5, 2, -4);
       scene.add(dir2);
 
-      // 參考地面（淡淡的）
       const grid = new THREE.GridHelper(10, 10, 0x22314f, 0x1a2540);
       grid.material.opacity = 0.22;
       grid.material.transparent = true;
       scene.add(grid);
 
-      window.addEventListener("resize", onResize);
-      animate();
-    }
+      window.addEventListener("resize", () => {
+        const w2 = canvasHost.clientWidth || 600;
+        const h2 = Math.max(canvasHost.clientHeight || 420, 420);
+        camera.aspect = w2 / h2;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w2, h2);
+      });
 
-    function onResize(){
-      if (!renderer || !camera) return;
-      const w = canvasHost.clientWidth || 600;
-      const h = Math.max(canvasHost.clientHeight || 420, 420);
-      camera.aspect = w / h;
-      camera.updateProjectionMatrix();
-      renderer.setSize(w, h);
-    }
-
-    function animate(){
-      rafId = requestAnimationFrame(animate);
-      controls?.update();
-      renderer?.render(scene, camera);
+      (function animate(){
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+      })();
     }
 
     function clearCurrent(){
@@ -393,10 +372,9 @@
       }
     }
 
-    // ====== 幾何：建立正n邊形（2D 點） ======
     function regularPolygonPoints(n, radius=1){
       const pts = [];
-      const start = -Math.PI / 2; // 其中一個頂點向上，較直觀
+      const start = -Math.PI / 2;
       for (let i=0;i<n;i++){
         const a = start + i * (2*Math.PI/n);
         pts.push(new THREE.Vector2(Math.cos(a)*radius, Math.sin(a)*radius));
@@ -404,34 +382,22 @@
       return pts;
     }
 
-    // ====== 建立 n角柱 ======
     function createPrism(n){
       const radius = 1.2;
       const height = 2.2;
 
       const shape = new THREE.Shape(regularPolygonPoints(n, radius));
-      const geo = new THREE.ExtrudeGeometry(shape, {
-        depth: height,
-        bevelEnabled: false,
-        steps: 1
-      });
-
-      geo.computeBoundingBox();
+      const geo = new THREE.ExtrudeGeometry(shape, { depth: height, bevelEnabled:false, steps:1 });
       geo.center();
-      geo.rotateX(Math.PI / 2); // 令柱身直立（沿 Y 軸）
+      geo.rotateX(Math.PI / 2);
 
       const mat = new THREE.MeshStandardMaterial({
-        color: 0x66e3ff,
-        metalness: 0.15,
-        roughness: 0.35
+        color: 0x66e3ff, metalness: 0.15, roughness: 0.35
       });
-
       const mesh = new THREE.Mesh(geo, mat);
 
-      // 邊線（稜更清楚）
       const edges = new THREE.EdgesGeometry(geo, 1);
-      const line = new THREE.LineSegments(
-        edges,
+      const line = new THREE.LineSegments(edges,
         new THREE.LineBasicMaterial({ color: 0xeaf0ff, transparent:true, opacity:0.85 })
       );
       mesh.add(line);
@@ -439,12 +405,10 @@
       return mesh;
     }
 
-    // ====== 建立 n角錐 ======
     function createPyramid(n){
       const radius = 1.25;
       const height = 2.4;
 
-      // 底面在 XZ 平面，y=0；頂點在 y=height
       const pts2 = regularPolygonPoints(n, radius);
       const base = pts2.map(p => new THREE.Vector3(p.x, 0, p.y));
       const apex = new THREE.Vector3(0, height, 0);
@@ -452,18 +416,13 @@
       const positions = [];
       const indices = [];
 
-      // base vertices
       base.forEach(v => positions.push(v.x, v.y, v.z));
-      // apex vertex
       positions.push(apex.x, apex.y, apex.z);
       const apexIndex = n;
 
-      // 底面三角化（fan）
       for (let i=1; i<n-1; i++){
         indices.push(0, i+1, i);
       }
-
-      // 側面
       for (let i=0; i<n; i++){
         const j = (i+1) % n;
         indices.push(i, j, apexIndex);
@@ -473,21 +432,15 @@
       geo.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
       geo.setIndex(indices);
       geo.computeVertexNormals();
-      geo.computeBoundingBox();
       geo.center();
 
       const mat = new THREE.MeshStandardMaterial({
-        color: 0x55efc4,
-        metalness: 0.12,
-        roughness: 0.38,
-        side: THREE.DoubleSide
+        color: 0x55efc4, metalness: 0.12, roughness: 0.38, side: THREE.DoubleSide
       });
-
       const mesh = new THREE.Mesh(geo, mat);
 
       const edges = new THREE.EdgesGeometry(geo, 1);
-      const line = new THREE.LineSegments(
-        edges,
+      const line = new THREE.LineSegments(edges,
         new THREE.LineBasicMaterial({ color: 0xeaf0ff, transparent:true, opacity:0.85 })
       );
       mesh.add(line);
@@ -495,61 +448,39 @@
       return mesh;
     }
 
-    // ====== 生成流程：先顯示名稱，再顯示 3D ======
     function generateFromInputs(){
       const E = Number(edgesSel.value);
       const V = Number(vertsSel.value);
+      const d = detectSolid(E, V);
 
-      const detected = detectSolid(E, V);
-
-      if (!detected){
+      if (!d){
         shapeNameEl.textContent = "（無法生成）";
         clearCurrent();
         setMsg("err", "你的輸入無法生成立體圖形。請按「重設」或更改稜數/頂點數再試。");
         return;
       }
 
-      setMsg("", "");
-      const name = detected.type === "prism" ? `${detected.n}角柱` : `${detected.n}角錐`;
+      const name = d.type === "prism" ? `${d.n}角柱` : `${d.n}角錐`;
       shapeNameEl.textContent = name;
 
-      // 先顯示名稱 → 稍後生成 3D（符合你要求）
       clearCurrent();
+      setMsg("", "");
 
+      // 先顯示名稱，再生成 3D
       setTimeout(() => {
-        const mesh = detected.type === "prism"
-          ? createPrism(detected.n)
-          : createPyramid(detected.n);
-
+        const mesh = d.type === "prism" ? createPrism(d.n) : createPyramid(d.n);
         currentMesh = mesh;
         scene.add(mesh);
-
         controls.target.set(0, 0.2, 0);
         controls.update();
-
         setMsg("ok", `已生成：${name}（稜=${E}，頂點=${V}）`);
       }, 450);
     }
 
-    function resetAll(){
-      // 重設到一個常見例子：三角柱（稜=9，頂點=6）
-      edgesSel.value = "9";
-      vertsSel.value = "6";
-      shapeNameEl.textContent = "（尚未生成）";
-      setMsg("", "");
-      clearCurrent();
-    }
+    // 對外提供，俾普通 script 呼叫
+    window.__generate3D = generateFromInputs;
+    window.__clear3D = clearCurrent;
 
-    // ====== 綁定事件 ======
-    confirmBtn.addEventListener("click", generateFromInputs);
-    resetBtn.addEventListener("click", resetAll);
-
-    // Enter 亦可確定
-    window.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") generateFromInputs();
-    });
-
-    // 初始化 Three
     initThree();
   </script>
 </body>
